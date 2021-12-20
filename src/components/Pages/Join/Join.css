@@ -4,6 +4,7 @@
 }
 #join .container .form-container{
     min-width: 300px;
+    max-width: 100%;
     background-color: white;
     position: absolute;
     top: 50%;

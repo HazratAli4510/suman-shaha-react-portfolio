@@ -18,7 +18,7 @@ const Join = () => {
                     <div className="box">
                         <form>
                             <Box
-                                component="form"
+                                component="div"
                                 sx={{
                                     '& .MuiTextField-root': { m: 1, width: '20rem' },
                                 }}
@@ -27,7 +27,7 @@ const Join = () => {
                             >
                                 <div>
                                     <TextField
-                                        id="standard-textarea"
+
                                         label="Name"
                                         placeholder="Enter your name"
                                         variant="standard"
@@ -35,7 +35,7 @@ const Join = () => {
                                 </div>
                                 <div>
                                     <TextField
-                                        id="standard-textarea"
+
                                         label="Email"
                                         placeholder="Enter your email"
                                         variant="standard"
@@ -44,7 +44,7 @@ const Join = () => {
                                 </div>
                                 <div>
                                     <TextField
-                                        id="standard-textarea"
+
                                         label="Password"
                                         placeholder="Enter a password"
                                         type="password"
@@ -54,7 +54,7 @@ const Join = () => {
                                 </div>
                                 <div>
                                     <TextField
-                                        id="standard-textarea"
+
                                         label="Retype your Password"
                                         placeholder="Retype your password"
                                         variant="standard"
@@ -65,9 +65,9 @@ const Join = () => {
                                 <span className='d-block mt-2'>Or Login With</span>
                                 <div className="socail-logins">
                                     <ul className='d-flex justify-content-center align-items-center'>
-                                        <li><button type='button' className='btn google shadow-none'><i class="fab fa-google"></i></button></li>
-                                        <li><button type='button' className='btn facebook shadow-none'><i class="fab fa-facebook-f"></i></button></li>
-                                        <li><button type='button' className='btn twitter shadow-none'><i class="fab fa-twitter"></i></button></li>
+                                        <li><button type='button' className='btn google shadow-none'><i className="fab fa-google"></i></button></li>
+                                        <li><button type='button' className='btn facebook shadow-none'><i className="fab fa-facebook-f"></i></button></li>
+                                        <li><button type='button' className='btn twitter shadow-none'><i className="fab fa-twitter"></i></button></li>
                                     </ul>
                                 </div>
                             </Box>

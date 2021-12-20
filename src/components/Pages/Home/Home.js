@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../Global/Header/Header';
 import Features from './Features/Features';
 import HeroArea from './HeroArea/HeroArea';
+import TopServices from './TopServices/TopServices';
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
             <Header></Header>
             <HeroArea />
             <Features />
+            <TopServices />
         </>
     );
 };

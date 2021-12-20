@@ -4,9 +4,14 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import '../Join/Join.css'
 import { Link } from 'react-router-dom';
+import ForgotPasswordModal from './ForgotPasswordModal';
 
 const SignIn = () => {
+    const [open, setOpen] = React.useState(false);
 
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
 
     return (
         <section id='join'>
@@ -19,7 +24,7 @@ const SignIn = () => {
                     <div className="box">
                         <form>
                             <Box
-                                component="form"
+                                component="div"
                                 sx={{
                                     '& .MuiTextField-root': { m: 1, width: '20rem' },
                                 }}
@@ -48,7 +53,8 @@ const SignIn = () => {
 
                                 <div className="option-links d-flex justify-content-between my-1">
                                     <Link className='text-decoration-none text-dark ms-2' to='/join'>Not registered?</Link>
-                                    <Link className='text-decoration-none text-dark' to='./'>Forgot Password?</Link>
+                                    <Link onClick={handleClickOpen} className='text-decoration-none text-dark' to='./'>Forgot Password?</Link>
+                                    <ForgotPasswordModal open={open} setOpen={setOpen}></ForgotPasswordModal>
                                 </div>
 
                                 <input id='form-submit' type="submit" value="Sign In" />
@@ -56,9 +62,9 @@ const SignIn = () => {
                                 <span className='d-block mt-2'>Or Login With</span>
                                 <div className="socail-logins">
                                     <ul className='d-flex justify-content-center align-items-center'>
-                                        <li><button type='button' className='btn google shadow-none'><i class="fab fa-google"></i></button></li>
-                                        <li><button type='button' className='btn facebook shadow-none'><i class="fab fa-facebook-f"></i></button></li>
-                                        <li><button type='button' className='btn twitter shadow-none'><i class="fab fa-twitter"></i></button></li>
+                                        <li><button type='button' className='btn google shadow-none'><i className="fab fa-google"></i></button></li>
+                                        <li><button type='button' className='btn facebook shadow-none'><i className="fab fa-facebook-f"></i></button></li>
+                                        <li><button type='button' className='btn twitter shadow-none'><i className="fab fa-twitter"></i></button></li>
                                     </ul>
                                 </div>
                             </Box>

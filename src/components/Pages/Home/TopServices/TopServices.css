@@ -1,0 +1,21 @@
+#topServices .heading > h5{
+    text-align: center;
+    color: #AC00FF;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    line-height: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+#topServices .heading > h1{
+    color: #3c3e41;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 0;
+    word-break: break-word;
+    text-align: center;
+    padding-bottom: 1rem;
+}
