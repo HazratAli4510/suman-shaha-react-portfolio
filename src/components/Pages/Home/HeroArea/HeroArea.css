@@ -1,0 +1,132 @@
+#heroArea{
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+#heroArea .heading-small{
+    padding-top: 150px;
+    color: #3c3e41;
+    letter-spacing: 3px;
+    font-size: 14px;margin-bottom: 20px;
+    font-weight: 600;
+}
+
+#heroArea .heading{
+    font-size: 60px;
+    font-weight: 700;
+    color: #1E2125;
+}
+
+#heroArea .heading span{
+    color: #AC00FF;
+}
+
+#heroArea .meta-description{
+    color: #3c3e41;
+    font-size: 16px;
+    line-height: 30px;
+    opacity: 0.9;
+    width: 70%;
+    text-align: justify;
+    margin-top: 25px;
+}
+
+#heroArea .social-icons{
+    font-weight: 500;
+    color: #1e2125;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+#heroArea .social-icons ul{
+    flex-wrap: wrap;
+    padding: 0;
+    list-style: none;
+    display: flex !important;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+
+}
+
+#heroArea .social-icons li{
+    margin: 10px 0px;
+    color: #878e99;
+}
+#heroArea .social-icons a{
+    box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;
+    background: linear-gradient(145deg, #e2e8ec, #ffffff);
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    position: relative;
+}
+
+#heroArea .social-icons a i{
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
+#heroArea .social-icons .linkedin{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+#heroArea .social-icons  i{
+    color: #3c3e41;
+}
+
+#heroArea .social-icons a:hover{
+    background: #AC00FF;
+}
+
+#heroArea .social-icons a:hover i{
+    color: white;
+}
+#heroArea .container{
+    border-bottom: 1px solid #D1D9E6;
+    padding-bottom: 100px;
+}
+
+#heroArea .social-icons li:hover{
+    margin-top: 7px;
+}
+#heroArea .social-icons li{
+    transition: margin-top ease .2s;
+}
+
+
+/* Responsive */
+@media (max-width: 1199.98px) { 
+    #heroArea{
+        padding-top: 0px;
+    }
+    #heroArea .heading-small{
+        padding-top: 50px;
+    }
+    #heroArea .heading{
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 991.98px) { 
+    #heroArea .heading{
+        font-size: 30px;
+    }
+    #heroArea .meta-description{
+        width: 100%;
+        text-align: justify;
+    }
+ }
+ @media (max-width: 767.98px) { 
+    #heroArea .row{
+        flex-direction: column-reverse;
+    }
+ }

@@ -1,0 +1,9 @@
+#features .heading{
+    color: #3c3e41;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 15px;
+    margin-bottom: 0;
+    word-break: break-word;
+}
