@@ -1,0 +1,41 @@
+#single-service-from-services .title{
+    color: #222325;
+}
+
+#single-service-from-services .card{
+    cursor: pointer;
+}
+
+#single-service-from-services .card:hover .title{
+    color: #AC00FF;
+}
+
+#single-service-from-services .rating i{
+    color: #AC00FF;
+}
+
+#single-service-from-services .rating span{
+    color: #AC00FF;
+    font-weight: 500;
+}
+#single-service-from-services .price span:first-child{
+    font-weight: 600;
+    color: #717171;
+    font-size: 0.85rem;
+}
+
+
+/* responsive */
+
+@media (max-width: 450px){
+    #single-service-from-services .card-body{
+        padding: 0.5rem;
+    }
+    #single-service-from-services .title{
+        font-size: 0.9rem !important;
+    }
+    #single-service-from-services .card-footer{
+       padding: 0.5rem;
+    }
+}
+

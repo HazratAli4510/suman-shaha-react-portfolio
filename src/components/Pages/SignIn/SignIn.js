@@ -5,13 +5,43 @@ import TextField from '@mui/material/TextField';
 import '../Join/Join.css'
 import { Link } from 'react-router-dom';
 import ForgotPasswordModal from './ForgotPasswordModal';
+import useAuth from '../../hooks/useAuth';
+import { useState } from 'react';
 
 const SignIn = () => {
+
+
+    document.title = 'Sign In - Suman Shaha'
+
     const [open, setOpen] = React.useState(false);
+
+
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const [isVerified, setIsVerified] = useState(true)
+
+    const [errorMessage, setErrorMessage] = useState('')
+
 
     const handleClickOpen = () => {
         setOpen(true);
     };
+
+
+
+    const { signInWithGoogle, signInWithEmail, signInViaFacebook } = useAuth()
+
+    const handleSignIn = (e) => {
+        e.preventDefault()
+
+
+
+
+        signInWithEmail(email, password, setIsVerified, setErrorMessage)
+    }
+
 
     return (
         <section id='join'>
@@ -22,7 +52,7 @@ const SignIn = () => {
                         <h3>Sign In Here</h3>
                     </div>
                     <div className="box">
-                        <form>
+                        <form onSubmit={handleSignIn}>
                             <Box
                                 component="div"
                                 sx={{
@@ -33,20 +63,22 @@ const SignIn = () => {
                             >
                                 <div>
                                     <TextField
-                                        id="standard-textarea"
+                                        onChange={e => setEmail(e.target.value)}
                                         label="Email"
                                         placeholder="Enter your email"
                                         variant="standard"
                                         type='email'
+                                        required
                                     />
                                 </div>
                                 <div>
                                     <TextField
-                                        id="standard-textarea"
+                                        onChange={e => setPassword(e.target.value)}
                                         label="Password"
                                         placeholder="Enter a password"
                                         type="password"
                                         variant="standard"
+                                        required
 
                                     />
                                 </div>
@@ -62,10 +94,18 @@ const SignIn = () => {
                                 <span className='d-block mt-2'>Or Login With</span>
                                 <div className="socail-logins">
                                     <ul className='d-flex justify-content-center align-items-center'>
-                                        <li><button type='button' className='btn google shadow-none'><i className="fab fa-google"></i></button></li>
-                                        <li><button type='button' className='btn facebook shadow-none'><i className="fab fa-facebook-f"></i></button></li>
+                                        <li><button onClick={() => signInWithGoogle()} type='button' className='btn google shadow-none'><i className="fab fa-google"></i></button></li>
+
+                                        <li><button onClick={() => signInViaFacebook()} type='button' className='btn facebook shadow-none'><i className="fab fa-facebook-f"></i></button></li>
+
                                         <li><button type='button' className='btn twitter shadow-none'><i className="fab fa-twitter"></i></button></li>
                                     </ul>
+                                    {
+                                        isVerified || <span className='text-danger'>Email is not verified. <br />Check your email to verify </span>
+                                    }
+                                    {
+                                        <span className='text-danger'>{errorMessage === 'auth/user-not-found' ? "Email not registred" : errorMessage === 'auth/wrong-password' ? 'Invalid Password, try again' : errorMessage}</span>
+                                    }
                                 </div>
                             </Box>
                         </form>

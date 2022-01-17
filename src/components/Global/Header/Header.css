@@ -27,3 +27,19 @@ nav .joing-btn:hover{
 .list-style-none{
     list-style-type: none;
 }
+
+
+/* Profile Icon */
+nav .dropdown li button:hover{
+    background-color: unset;
+    color: #9B00E5;
+}
+
+
+
+@media (max-width: 767px){
+    #navbarSupportedContent{
+        z-index: 10;
+        background-color: white;
+    }
+}

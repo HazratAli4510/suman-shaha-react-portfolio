@@ -5,6 +5,7 @@ import HeroArea from './HeroArea/HeroArea';
 import TopServices from './TopServices/TopServices';
 
 const Home = () => {
+    document.title = 'Suman Shaha - A Professinal Digital Marketer'
     return (
         <>
             <Header></Header>

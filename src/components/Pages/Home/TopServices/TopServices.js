@@ -9,6 +9,9 @@ const TopServices = () => {
                     <h5>Most viewed and all-time top-selling services</h5>
                     <h1>My Top Selling Services</h1>
                 </div>
+                <div className="main">
+
+                </div>
             </div>
         </section>
     );

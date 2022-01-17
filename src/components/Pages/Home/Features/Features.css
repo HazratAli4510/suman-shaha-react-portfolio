@@ -45,7 +45,7 @@
 /* responsive */
 @media (max-width: 575.98px) { 
     #features .row .col .box{
-        padding: 7px;
+        padding: 20px;
         border-radius: 5px;
         margin: 10px 0;
     }
@@ -64,5 +64,8 @@
     }
     #features .container{
         padding-bottom: 50px;
+    }
+    #features .row .col .title{
+        margin-bottom: 0px;
     }
  }

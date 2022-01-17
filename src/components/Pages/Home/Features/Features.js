@@ -50,7 +50,7 @@ const Features = () => {
             <div className="container">
                 <h5 className='small-heading'>FEATURES</h5>
                 <h1 className='heading'>What I Do</h1>
-                <div className="row row-cols-2 row-cols-md-2 row-cols-lg-3">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
                     {
                         features.map(feature => <SingleFeatures feature={feature} key={feature.id} > </SingleFeatures>)
                     }
@@ -62,8 +62,8 @@ const Features = () => {
 
 const SingleFeatures = ({ feature }) => {
     return (
-        <div className="col overflow-hidden">
-            <div className="box">
+        <div className="col">
+            <div className="box card h-100">
                 <div className="icon">
                     <img src={feature.image} alt="" />
                 </div>

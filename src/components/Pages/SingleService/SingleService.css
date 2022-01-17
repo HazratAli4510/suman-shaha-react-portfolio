@@ -1,0 +1,90 @@
+.signPageService{
+    background-color: white !important;
+}
+
+
+.signPageService .title{
+    color: #404145;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.signPageService .category h6{
+    color: #9F00E8;
+    font-weight: 600;
+}
+.signPageService .desctiption-box .description-title h5{
+    font-weight: 600;
+    color: #404145;
+}
+
+
+
+
+/* Pricing Box */
+.flex-33{
+    flex-basis: 33.33%;
+}
+
+.signPageService .pricing-box{
+    height: fit-content;
+    top: 120px;
+}
+
+
+.signPageService .nav-tabs .nav-item.show .nav-link, .signPageService .nav-tabs .nav-link.active{
+    background-color: white;
+    color: #9F00E8;
+    border-bottom: 2px solid #9F00E8;
+}
+
+
+.signPageService .pricing-box ul li button{
+    color: #7a7d85;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 16px;
+    border: 0;
+    background-color: #FAFAFA;
+    border-bottom: 0;
+    border-radius: 0;
+}
+
+.signPageService .pricing-box ul li  #standard-tab{
+    border-right: 1px solid #c9c9c9;
+    border-left: 1px solid #c9c9c9;
+}
+
+.signPageService .pricing-box ul li button:hover {
+    color: #9F00E8;
+}
+
+.signPageService .tab-content .tab-pane h5{
+    color: #262729;
+}
+
+.signPageService .pricing-box .service-meta p{
+    color: #62646a;
+}
+
+.signPageService .pricing-box .service-purchase-btn button{
+    background-color: #9F00E8;
+    color: white;
+    font-weight: 600;
+}
+
+.signPageService .pricing-box .service-purchase-btn button:hover{
+    background-color: #b736f3;
+}
+
+.signPageService .pricing-box .timing{
+    color: #222325;
+}
+.signPageService .pricing-box .options li{
+    font-weight: 500;
+    color: #696969;
+}
+.signPageService .pricing-box .options i{
+    color: #9F00E8;
+}
+
