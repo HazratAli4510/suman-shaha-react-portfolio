@@ -51,117 +51,9 @@ const HeroArea = ({ service }) => {
                         </li>
                     </ul>
                     <div className="tab-content px-4" id="myTabContent">
-
-                        <div className="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
-                            <div>
-                                <div className="row justify-content-between my-3">
-                                    <div className="col">
-                                        <h5>BASIC</h5>
-                                    </div>
-                                    <div className="col">
-                                        <h5 className='text-end'>${service?.packages?.basic?.price}</h5>
-                                    </div>
-                                </div>
-                                <div className="service-meta">
-                                    <p>{service?.packages?.basic?.meta}</p>
-                                </div>
-                                <div className="timing">
-                                    <div className="row my-3">
-                                        <div className="col">
-                                            <span className='fw-bold'><i className="far fa-clock"></i> {service?.packages?.basic?.deliveryTime} {service?.packages?.basic?.deliveryTime === '1' ? 'Day' : 'Days'} Delivery</span>
-                                        </div>
-                                        <div className="col text-end">
-                                            <span className='fw-bold'><i className="fas fa-undo-alt"></i> {service?.packages?.basic?.revisions === '-1' ? 'Unlimited' : service?.packages?.basic?.revisions} {service?.packages?.basic?.revisions === '1' ? 'Revision' : 'Revisions'} </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="options">
-                                    <ul className='list-style-none p-0'>
-                                        <li><i className="fas fa-check"></i> Website Migration </li>
-                                        <li><i className="fas fa-check"></i> Digital Marketing Service </li>
-                                        <li><i className="fas fa-check"></i> Facebook Marketing </li>
-                                        <li><i className="fas fa-check"></i> Website speed optimization </li>
-                                    </ul>
-                                </div>
-                                <div className="service-purchase-btn">
-                                    <button className='btn text-center d-block w-100 shadow-none py-2'>Continue ($125)</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="tab-pane fade" id="standard" role="tabpanel" aria-labelledby="standard-tab">
-                            <div>
-                                <div className="row justify-content-between my-3">
-                                    <div className="col">
-                                        <h5 className='text-uppercase'>Standard</h5>
-                                    </div>
-                                    <div className="col">
-                                        <h5 className='text-end'>$250</h5>
-                                    </div>
-                                </div>
-                                <div className="service-meta">
-                                    <p>I will back up and migrate your WordPress site up to 500MB in size.</p>
-                                </div>
-                                <div className="timing">
-                                    <div className="row my-3">
-                                        <div className="col">
-                                            <span className='fw-bold'><i className="far fa-clock"></i> 2 Days Delivery</span>
-                                        </div>
-                                        <div className="col text-end">
-                                            <span className='fw-bold'><i className="fas fa-undo-alt"></i> 2 Revisions </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="options">
-                                    <ul className='list-style-none p-0'>
-                                        <li><i className="fas fa-check"></i> Website Migration </li>
-                                        <li><i className="fas fa-check"></i> Digital Marketing Service </li>
-                                        <li><i className="fas fa-check"></i> Facebook Marketing </li>
-                                        <li><i className="fas fa-check"></i> Website speed optimization </li>
-                                    </ul>
-                                </div>
-                                <div className="service-purchase-btn">
-                                    <button className='btn text-center d-block w-100 shadow-none py-2'>Continue ($250)</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="tab-pane fade" id="premium" role="tabpanel" aria-labelledby="premium-tab">
-                            <div>
-                                <div className="row justify-content-between my-3">
-                                    <div className="col">
-                                        <h5 className='text-uppercase'>Premium</h5>
-                                    </div>
-                                    <div className="col">
-                                        <h5 className='text-end'>$280</h5>
-                                    </div>
-                                </div>
-                                <div className="service-meta">
-                                    <p>I will back up and migrate your WordPress site up to 500MB in size.</p>
-                                </div>
-                                <div className="timing">
-                                    <div className="row my-3">
-                                        <div className="col">
-                                            <span className='fw-bold'><i className="far fa-clock"></i> 2 Days Delivery</span>
-                                        </div>
-                                        <div className="col text-end">
-                                            <span className='fw-bold'><i className="fas fa-undo-alt"></i> 2 Revisions </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="options">
-                                    <ul className='list-style-none p-0'>
-                                        <li><i className="fas fa-check"></i> Website Migration </li>
-                                        <li><i className="fas fa-check"></i> Digital Marketing Service </li>
-                                        <li><i className="fas fa-check"></i> Facebook Marketing </li>
-                                        <li><i className="fas fa-check"></i> Website speed optimization </li>
-                                    </ul>
-                                </div>
-                                <div className="service-purchase-btn">
-                                    <button className='btn text-center d-block w-100 shadow-none py-2'>Continue ($280)</button>
-                                </div>
-                            </div>
-                        </div>
+                        <SinglePackage packageName='basic' packagea={service.packages.basic}></SinglePackage>
+                        <SinglePackage packageName='standard' packagea={service.packages.standard}></SinglePackage>
+                        <SinglePackage packageName='premium' packagea={service.packages.premium}></SinglePackage>
                     </div>
                 </div>
             </div>
@@ -170,8 +62,52 @@ const HeroArea = ({ service }) => {
 };
 
 
+const SinglePackage = ({ packageName, packagea }) => {
+    return (
+        <div className={`tab-pane fade ${packageName === 'basic' ? 'show active' : ''}`} id={packageName} role="tabpanel" aria-labelledby={`${packageName}-tab`}>
+            <div>
+                <div className="row justify-content-between my-3">
+                    <div className="col">
+                        <h5 className='text-uppercase'>{packageName}</h5>
+                    </div>
+                    <div className="col">
+                        <h5 className='text-end'>${packagea.price}</h5>
+                    </div>
+                </div>
+                <div className="service-meta">
+                    <p>{packagea.meta}</p>
+                </div>
+                <div className="timing">
+                    <div className="row my-3">
+                        <div className="col">
+                            <span className='fw-bold'><i className="far fa-clock"></i> {packagea.deliveryTime} {packagea.deliveryTime === '1' ? 'Day' : 'Days'} Days Delivery</span>
+                        </div>
+                        <div className="col text-end">
+                            <span className='fw-bold'><i className="fas fa-undo-alt"></i> {packagea.revisions === '-1' ? 'Unlimited' : packagea.revisions} {packagea.revisions === '1' ? 'Revision' : 'Revisions'} </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="options">
+                    <ul className='list-style-none p-0'>
+                        {
+                            packagea.options.map(option => <SingleOption option={option} />)
+                        }
+                    </ul>
+                </div>
+                <div className="service-purchase-btn">
+                    <button className='btn text-center d-block w-100 shadow-none py-2'>Continue (${packagea.price})</button>
+                </div>
+            </div>
+        </div>
+    )
+}
 
 
+const SingleOption = ({ option }) => {
+    return (
+        <li><i className="fas fa-check"></i> {option}</li>
+    )
+}
 
 
 const ServiceDescription = ({ block }) => {
