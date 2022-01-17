@@ -30,7 +30,7 @@ const HeroArea = ({ service }) => {
                         </div>
                         <div className="main-description">
                             {
-                                description.map(block => <Example key={block.id} block={block} ></Example>)
+                                description.map(block => <ServiceDescription key={block.id} block={block} ></ServiceDescription>)
                             }
                         </div>
                     </div>
@@ -51,26 +51,27 @@ const HeroArea = ({ service }) => {
                         </li>
                     </ul>
                     <div className="tab-content px-4" id="myTabContent">
+
                         <div className="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
                             <div>
                                 <div className="row justify-content-between my-3">
                                     <div className="col">
-                                        <h5 className='text-uppercase'>Basic</h5>
+                                        <h5>BASIC</h5>
                                     </div>
                                     <div className="col">
-                                        <h5 className='text-end'>$125</h5>
+                                        <h5 className='text-end'>${service?.packages?.basic?.price}</h5>
                                     </div>
                                 </div>
                                 <div className="service-meta">
-                                    <p>I will back up and migrate your WordPress site up to 500MB in size.</p>
+                                    <p>{service?.packages?.basic?.meta}</p>
                                 </div>
                                 <div className="timing">
                                     <div className="row my-3">
                                         <div className="col">
-                                            <span className='fw-bold'><i className="far fa-clock"></i> 2 Days Delivery</span>
+                                            <span className='fw-bold'><i className="far fa-clock"></i> {service?.packages?.basic?.deliveryTime} {service?.packages?.basic?.deliveryTime === '1' ? 'Day' : 'Days'} Delivery</span>
                                         </div>
                                         <div className="col text-end">
-                                            <span className='fw-bold'><i className="fas fa-undo-alt"></i> 2 Revisions </span>
+                                            <span className='fw-bold'><i className="fas fa-undo-alt"></i> {service?.packages?.basic?.revisions === '-1' ? 'Unlimited' : service?.packages?.basic?.revisions} {service?.packages?.basic?.revisions === '1' ? 'Revision' : 'Revisions'} </span>
                                         </div>
                                     </div>
                                 </div>
@@ -170,7 +171,10 @@ const HeroArea = ({ service }) => {
 
 
 
-const Example = ({ block }) => {
+
+
+
+const ServiceDescription = ({ block }) => {
 
     return (
         <>
