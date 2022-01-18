@@ -69,7 +69,9 @@ const Header = () => {
                                     </li>
                                     <button onClick={() => navigate('/join')} className="btn py-0 shadow-none border-0 joing-btn d-none d-md-inline-block" type="submit">Join</button>
                                 </>
-                                : <div className='dropdown'>
+                                : <div style={{
+                                    zIndex: '1050'
+                                }} className='dropdown'>
 
                                     <button data-bs-toggle="dropdown" aria-expanded="false" className='btn p-0 shadow-none ' ><img width={40} height={40} className='img-fluid rounded-circle' src={user.photoURL ? user.photoURL : "https://monstar-lab.com/global/wp-content/uploads/sites/11/2019/04/male-placeholder-image.jpeg"} alt="" /></button>
 

@@ -16,7 +16,9 @@ const ServicesMain = () => {
             <div className='row row-cols-2  row-cols-md-3 row-cols-lg-4 g-3'>
                 {
                     services.length ?
-                        services.map(service => <SingleService slug={service.slug} thumbnail={service.thumbnail} title={service.title} key={service._id} />)
+                        /* services.map(service => <SingleService minPirce={service.packages.basic.price} slug={service.slug} thumbnail={service.thumbnail} title={service.title} id={service._id} key={service._id} />)
+                        : */
+                        services.map(service => <SingleService service={service} key={service._id} />)
                         :
                         <div style={{
                             height: '100vh',

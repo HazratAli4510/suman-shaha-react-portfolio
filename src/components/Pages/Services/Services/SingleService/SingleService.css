@@ -1,5 +1,10 @@
 #single-service-from-services .title{
     color: #222325;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 #single-service-from-services .card{
@@ -22,6 +27,10 @@
     font-weight: 600;
     color: #717171;
     font-size: 0.85rem;
+}
+
+#single-service-from-services .save-btn button:hover i{
+    color: #AC00FF;
 }
 
 

@@ -6,7 +6,7 @@
 .signPageService .title{
     color: #404145;
     font-size: 28px;
-    font-weight: 700;
+    /* font-weight: 700; */
 }
 
 .signPageService .category h6{

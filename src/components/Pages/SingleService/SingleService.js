@@ -5,8 +5,12 @@ import { useParams } from 'react-router-dom';
 import Header from '../../Global/Header/Header';
 import HeroArea from './HeroArea/HeroArea';
 import './SingleService.css'
+import Suggestions from './Suggestions/Suggestions';
 
 const SingleService = () => {
+
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 
     const [service, setService] = useState({})
 
@@ -38,6 +42,7 @@ const SingleService = () => {
                         </div>
                     </div>
             }
+            <Suggestions></Suggestions>
         </main>
     );
 };

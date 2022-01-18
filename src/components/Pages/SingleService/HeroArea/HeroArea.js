@@ -4,7 +4,6 @@ const HeroArea = ({ service }) => {
 
     const description = service?.description?.blocks || []
 
-    console.log(service)
 
 
     return (
@@ -38,7 +37,9 @@ const HeroArea = ({ service }) => {
 
                 {/* Right Section */}
 
-                <div className="col-12 col-lg-5 col-4 p-0 border sticky-top pricing-box pb-4">
+                <div style={{
+                    zIndex: '100'
+                }} className="col-12 col-lg-5 col-4 p-0 border sticky-top pricing-box pb-4">
                     <ul className="nav nav-tabs justify-content-between" id="myTab" role="tablist">
                         <li className="nav-item flex-33" role="presentation">
                             <button className="nav-link active w-100" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic" type="button" role="tab" aria-controls="basic" aria-selected="true">Basic</button>
