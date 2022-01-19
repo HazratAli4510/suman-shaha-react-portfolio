@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../Global/Footer/Footer';
 import Header from '../../Global/Header/Header';
 import Features from './Features/Features';
 import HeroArea from './HeroArea/HeroArea';
@@ -12,6 +13,7 @@ const Home = () => {
             <HeroArea />
             <Features />
             <TopServices />
+            <Footer />
         </>
     );
 };

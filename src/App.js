@@ -1,12 +1,14 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './components/context/AuthProvider/AuthProvider';
+import CheckOut from './components/Pages/CheckOut/CheckOut';
 import Contact from './components/Pages/Contact/Contact';
 import Home from './components/Pages/Home/Home';
 import Join from './components/Pages/Join/Join';
 import Services from './components/Pages/Services/Services';
 import SignIn from './components/Pages/SignIn/SignIn';
 import SingleService from './components/Pages/SingleService/SingleService';
+import PrivateRoute from './components/Routes/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/services' element={<Services />} />
             <Route path='/service/:slug' element={<SingleService />} />
+            <Route path='/checkout/:id' element={<PrivateRoute><CheckOut /></PrivateRoute>} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/sign-in' element={<SignIn />} />
             <Route path='/join' element={<Join />} />

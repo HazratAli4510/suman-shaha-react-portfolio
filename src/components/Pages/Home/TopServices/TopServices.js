@@ -9,7 +9,7 @@ const TopServices = () => {
     const [services, setServices] = React.useState([])
 
     React.useEffect(() => {
-        fetch('http://localhost:8080/services')
+        fetch('http://localhost:8080/get4rand?quantity=12')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -26,11 +26,11 @@ const TopServices = () => {
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 2
+            items: 3
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
-            items: 1
+            items: 2
         }
     };
     return (
@@ -42,10 +42,17 @@ const TopServices = () => {
                 </div>
                 <div className="main">
 
-                    <Carousel responsive={responsive}>
+                    <Carousel
+                        responsive={responsive}
+                        swipeable={true}
+                        draggable={false}
+                        ssr={true}
+                        autoPlay={true}
+                        autoPlaySpeed={5000}
+                    >
 
                         {
-                            services.map(service => <div className="mx-2"><SingleService service={service}></SingleService></div>)
+                            services.map(service => <div className="mx-2"><SingleService key={service._id} service={service}></SingleService></div>)
                         }
 
                     </Carousel>

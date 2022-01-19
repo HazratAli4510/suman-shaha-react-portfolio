@@ -8,6 +8,7 @@ firebaseInitialization()
 
 const useFirebase = () => {
     const [user, setUser] = useState(null)
+    const [isLoading, setIsLoading] = useState(true)
 
 
     const googleProvider = new GoogleAuthProvider();
@@ -17,12 +18,15 @@ const useFirebase = () => {
 
     // Sign in using google
     const signInWithGoogle = () => {
+        setIsLoading(true)
         signInWithPopup(auth, googleProvider)
             .then(result => {
-
-            }).catch(error => {
+                setUser(result.user)
+            })
+            .catch(error => {
                 console.log(error)
             })
+            .finally(() => setIsLoading(false))
     }
 
     // sign out
@@ -32,10 +36,11 @@ const useFirebase = () => {
             navigate("/")
         }).catch((error) => {
             // An error happened.
-        });
+        })
+            .finally(() => setIsLoading(false))
     }
 
-    //sign in with email and password
+    //sign up with email and password
     const signUpWithEmail = (email, password, setError, name, setisMailSent, navigate) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -62,6 +67,7 @@ const useFirebase = () => {
 
     //Sign in with emial
     const signInWithEmail = (email, password, setIsVerified, setErrorMessage) => {
+        setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
             .then(userCredential => {
                 const user = userCredential.user
@@ -76,10 +82,12 @@ const useFirebase = () => {
                 const erroCode = error.code
                 setErrorMessage(erroCode)
             })
+            .finally(() => setIsLoading(false))
     }
 
     //signInWithFacebook
     const signInViaFacebook = () => {
+        setIsLoading(true)
         signInWithPopup(auth, facebookProvider)
             .then(result => {
                 const user = result.user
@@ -88,6 +96,7 @@ const useFirebase = () => {
             .catch(err => {
                 console.log(err)
             })
+            .finally(() => setIsLoading(false))
     }
 
 
@@ -96,13 +105,15 @@ const useFirebase = () => {
 
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, user => {
             if (user) {
                 setUser(user)
             } else {
-
+                setUser(null)
             }
-        });
+            setIsLoading(false)
+        })
+        return unsubscribe;
     }, [auth])
 
     return {
@@ -111,7 +122,8 @@ const useFirebase = () => {
         signOutUser,
         signUpWithEmail,
         signInWithEmail,
-        signInViaFacebook
+        signInViaFacebook,
+        isLoading
     }
 }
 

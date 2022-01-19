@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Footer from '../../Global/Footer/Footer';
 import Header from '../../Global/Header/Header';
 import HeroArea from './HeroArea/HeroArea';
 import './SingleService.css'
@@ -14,7 +15,7 @@ const SingleService = () => {
 
     const [service, setService] = useState({})
 
-    document.title = service.title || 'Service'
+    document.title = service.title || 'Loading...'
 
     const params = useParams()
     const url = `http://localhost:8080/services?service=${params.slug}`
@@ -43,6 +44,7 @@ const SingleService = () => {
                     </div>
             }
             <Suggestions></Suggestions>
+            <Footer></Footer>
         </main>
     );
 };

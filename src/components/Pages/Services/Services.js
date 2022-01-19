@@ -5,10 +5,9 @@ import ServicesMain from './Services/ServicesMain';
 
 const Services = () => {
     document.title = 'Services - Suman Shaha'
+
     return (
-        <div style={{
-            minHeight: '100vh'
-        }}>
+        <div>
             <Header></Header>
             <ServicesMain></ServicesMain>
         </div>

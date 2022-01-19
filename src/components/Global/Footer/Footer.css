@@ -1,0 +1,33 @@
+footer{
+    background-color: #2D1E38;
+    border-radius: 22px 22px 0 0;
+}
+footer .footer-item-title h3{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+footer .footer-menu ul li a{
+    color:#EDEDED ;
+}
+footer .footer-menu ul li a:hover{
+    color: white;
+}
+footer address{
+    color: #EDEDED;
+}
+footer a.phone-number{
+    color: #EDEDED;
+}
+footer .footer-bottom{
+    border-radius: 20px 20px 0 0;
+}
+footer .footer-bottom img{
+    width: 150px;
+}
+footer .footer-bottom p ,footer .footer-bottom a{
+    font-size: 1rem;
+    font-weight: 500;
+    color: #5C5C5C;
+}
+

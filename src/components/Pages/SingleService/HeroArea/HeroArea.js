@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const HeroArea = ({ service }) => {
 
@@ -52,9 +53,9 @@ const HeroArea = ({ service }) => {
                         </li>
                     </ul>
                     <div className="tab-content px-4" id="myTabContent">
-                        <SinglePackage packageName='basic' packagea={service.packages.basic}></SinglePackage>
-                        <SinglePackage packageName='standard' packagea={service.packages.standard}></SinglePackage>
-                        <SinglePackage packageName='premium' packagea={service.packages.premium}></SinglePackage>
+                        <SinglePackage serviceId={service._id} packageName='basic' packagea={service.packages.basic}></SinglePackage>
+                        <SinglePackage serviceId={service._id} packageName='standard' packagea={service.packages.standard}></SinglePackage>
+                        <SinglePackage serviceId={service._id} packageName='premium' packagea={service.packages.premium}></SinglePackage>
                     </div>
                 </div>
             </div>
@@ -63,7 +64,8 @@ const HeroArea = ({ service }) => {
 };
 
 
-const SinglePackage = ({ packageName, packagea }) => {
+const SinglePackage = ({ packageName, packagea, serviceId }) => {
+    const navigate = useNavigate()
     return (
         <div className={`tab-pane fade ${packageName === 'basic' ? 'show active' : ''}`} id={packageName} role="tabpanel" aria-labelledby={`${packageName}-tab`}>
             <div>
@@ -96,7 +98,7 @@ const SinglePackage = ({ packageName, packagea }) => {
                     </ul>
                 </div>
                 <div className="service-purchase-btn">
-                    <button className='btn text-center d-block w-100 shadow-none py-2'>Continue (${packagea.price})</button>
+                    <button onClick={() => navigate(`/checkout/${serviceId}&${packageName}`)} className='btn text-center d-block w-100 shadow-none py-2'>Continue (${packagea.price})</button>
                 </div>
             </div>
         </div>
