@@ -17,11 +17,12 @@ const useFirebase = () => {
     const auth = getAuth();
 
     // Sign in using google
-    const signInWithGoogle = () => {
+    const signInWithGoogle = (navigate, redirectLocation) => {
         setIsLoading(true)
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 setUser(result.user)
+                navigate(redirectLocation)
             })
             .catch(error => {
                 console.log(error)
@@ -66,7 +67,7 @@ const useFirebase = () => {
     }
 
     //Sign in with emial
-    const signInWithEmail = (email, password, setIsVerified, setErrorMessage) => {
+    const signInWithEmail = (email, password, setIsVerified, setErrorMessage, navigate, redirectLocation) => {
         setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
             .then(userCredential => {
@@ -76,6 +77,7 @@ const useFirebase = () => {
                     setIsVerified(false)
                 } else {
                     setIsVerified(true)
+                    navigate(redirectLocation)
                 }
             })
             .catch(error => {
@@ -86,12 +88,13 @@ const useFirebase = () => {
     }
 
     //signInWithFacebook
-    const signInViaFacebook = () => {
+    const signInViaFacebook = (navigate, redirectLocation) => {
         setIsLoading(true)
         signInWithPopup(auth, facebookProvider)
             .then(result => {
                 const user = result.user
-                console.log(user)
+                setUser(user)
+                navigate(redirectLocation)
             })
             .catch(err => {
                 console.log(err)

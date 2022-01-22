@@ -11,7 +11,8 @@ const PrivateRoute = ({ children, ...rest }) => {
         return (
             <div className='text-center' style={{
                 height: '100vh',
-                marginTop: '40vh'
+                marginTop: '40vh',
+                backgroundColor: 'white'
             }}>
                 <div className="spinner-border" role="status">
                     <span className="visually-hidden">Loading...</span>

@@ -3,7 +3,7 @@ import Header from '../../Global/Header/Header'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import '../Join/Join.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ForgotPasswordModal from './ForgotPasswordModal';
 import useAuth from '../../hooks/useAuth';
 import { useState } from 'react';
@@ -22,21 +22,21 @@ const SignIn = () => {
     const [isVerified, setIsVerified] = useState(true)
     const [errorMessage, setErrorMessage] = useState('')
 
+    const location = useLocation()
+    const redirectLocation = location?.state?.from?.pathname || '/'
 
     const handleClickOpen = () => {
         setOpen(true);
     };
 
+    const navigate = useNavigate()
 
     const { signInWithGoogle, signInWithEmail, signInViaFacebook } = useAuth()
 
     const handleSignIn = (e) => {
         e.preventDefault()
 
-
-
-
-        signInWithEmail(email, password, setIsVerified, setErrorMessage)
+        signInWithEmail(email, password, setIsVerified, setErrorMessage, navigate, redirectLocation)
     }
 
 
@@ -92,9 +92,9 @@ const SignIn = () => {
                                     <span className='d-block mt-2'>Or Login With</span>
                                     <div className="socail-logins">
                                         <ul className='d-flex justify-content-center align-items-center'>
-                                            <li><button onClick={() => signInWithGoogle()} type='button' className='btn google shadow-none'><i className="fab fa-google"></i></button></li>
+                                            <li><button onClick={() => signInWithGoogle(navigate, redirectLocation)} type='button' className='btn google shadow-none'><i className="fab fa-google"></i></button></li>
 
-                                            <li><button onClick={() => signInViaFacebook()} type='button' className='btn facebook shadow-none'><i className="fab fa-facebook-f"></i></button></li>
+                                            <li><button onClick={() => signInViaFacebook(navigate, redirectLocation)} type='button' className='btn facebook shadow-none'><i className="fab fa-facebook-f"></i></button></li>
 
                                             <li><button type='button' className='btn twitter shadow-none'><i className="fab fa-twitter"></i></button></li>
                                         </ul>
