@@ -3,15 +3,18 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../../Global/Header/Header';
+import useAuth from '../../hooks/useAuth';
 import './CheckOut.css'
-
-
 
 
 
 const CheckOut = () => {
 
+    const { user } = useAuth()
+
+
     document.title = 'Secure Checkout'
+
 
     let params = useParams()
     params = params.id.split('&')
@@ -32,7 +35,38 @@ const CheckOut = () => {
     const selectedPackage = packageName === 'basic' ? service?.packages?.basic : packageName === 'standard' ? service?.packages?.standard : service?.packages?.premium
 
     const subtotal = (price / 100 * 3.5 + 0.35).toFixed(2);
+
     const totalPrice = parseFloat(price) + parseFloat(subtotal)
+
+    const info = {
+        product_name: service.title,
+        product_profile: 'general',
+        total_amount: totalPrice,
+        cus_name: user.displayName,
+        cus_email: user.email || '',
+        product_category: service.category
+
+    }
+
+    const onPay = () => {
+
+        fetch(`http://localhost:8080/init`, {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(info)
+        })
+            .then(res => res.json())
+            .then(data => {
+                window.location.replace(data)
+            })
+
+    }
+
+
+
+
 
     return (
         <>
@@ -119,15 +153,12 @@ const CheckOut = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <button className='btn w-100 my-4 shadow-none'>Confirm And Pay</button>
+                                    <button onClick={onPay} className='btn w-100 my-4 shadow-none'>Confirm And Pay</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
             </main>
         </>
     );
